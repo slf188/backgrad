@@ -5,7 +5,7 @@ def draw_graph(node):
         if dot is None:
             dot = Digraph()
             dot.attr(rankdir='LR')  # Set the direction of the graph to left-to-right
-            dot.node(str(id(node)), label=f"{{ {node.label} | {str(node.data).center(10)} | {str(node.grad).center(10)} }}", shape='record')
+            dot.node(str(id(node)), label=f"{{ {node.label} | data {node.data:.4f} | grad {node.grad:.4f} }}", shape='record')
         
         if node.op:
             op_node_id = str(id(node)) + node.op
@@ -13,7 +13,7 @@ def draw_graph(node):
             dot.edge(op_node_id, str(id(node)))
         
         for child in node.children:
-            dot.node(str(id(child)), label=f"{{ {child.label} | data: {str(child.data).center(10)} | grad: {str(child.grad).center(10)} }}", shape='record')
+            dot.node(str(id(child)), label=f"{{ {child.label} | data {child.data:.4f} | grad {child.grad:.4f} }}", shape='record')
             if node.op:
                 dot.edge(str(id(child)), op_node_id)
             else:
