@@ -17,6 +17,8 @@ with backgrad you can compute the gradient by executing backpropagation over a d
 
 this library also supports visualization of the neural network using [graphviz](https://graphviz.org/).
 
+![visualizer.png](visualizer.png)
+
 ### License
 
 MIT
